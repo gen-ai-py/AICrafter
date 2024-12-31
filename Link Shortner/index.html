@@ -5,20 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Link Shortener</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <style>
+    /* Basic styling for improvements */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .short-link {
+      margin-top: 20px;
+      display: none;
+    }
+    .short-link p {
+      margin: 5px 0;
+    }
+    #copyBtn {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #copyBtn:hover {
+      background-color: #218838;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<script src="script.js"></script>
 <body>
 
   <div class="container">
     <h1>Link Shortener</h1>
-    <input type="text" id="urlInput" placeholder="Enter a long URL">
+    <input type="text" id="urlInput" placeholder="Enter a long URL" aria-label="Enter a long URL">
     <button id="shortenBtn">Shorten Link</button>
+    <p class="error" id="errorMsg" style="display: none;">Please enter a valid URL.</p>
 
-    <div class="short-link">
+    <div class="short-link" id="shortLinkContainer">
       <p>Shortened URL:</p>
-      <a href="#" id="shortenedLink"></a>
+      <a href="#" id="shortenedLink" target="_blank" rel="noopener noreferrer"></a>
+      <button id="copyBtn">Copy</button>
     </div>
   </div>
 
 </body>
 </html>
+
